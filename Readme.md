@@ -8,10 +8,10 @@ require 'styledown'
 Styledown.parse('### hello', bare: true)
 ```
 
-API for `Styledown.parse` is exactly the same as the JS version 
-([docs](https://github.com/styledown/styledown/blob/master/docs/API.md)).
-
-[Styledown](https://github.com/styledown/styledown)
+API for `Styledown.parse` is exactly the same as the JS version ([docs]).
+ 
+[docs]: https://github.com/styledown/styledown/blob/master/docs/API.md#styledownparse
+[Styledown]: https://github.com/styledown/styledown
 
 ## :copyright:
 
