@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.date     = Time.now.strftime('%Y-%m-%d')
   s.summary  = %[...]
 
-  s.files            = `git ls-files`.strip.split('\n')
-  s.test_files       = `git ls-files -- test/*`.strip.split('\n')
-  s.extra_rdoc_files = ['Readme.md', 'History.md']
+  s.files            = `git ls-files`.strip.split("\n")
+  s.test_files       = `git ls-files -- test/*`.strip.split("\n")
+  s.extra_rdoc_files = `git ls-files -- *.md`.strip.split("\n")
   s.executables      = Dir['bin/*'].map { |f| File.basename(f) }
 
   s.author   = 'Rico Sta. Cruz'
