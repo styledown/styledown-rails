@@ -21,4 +21,4 @@ module Styledown
   end
 end
 
-# puts Styledown.parse('### hi')
+require File.expand_path('../styledown/railtie', __FILE__) if defined?(Rails)
