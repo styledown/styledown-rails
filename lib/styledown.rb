@@ -2,7 +2,7 @@ module Styledown
   extend self
 
   def source
-    @source ||= File.read(File.expand_path('../styledown/src/styledown.js', __FILE__))
+    @source ||= File.read(File.expand_path('../../vendor/dist/styledown.js', __FILE__))
   end
 
   def context
