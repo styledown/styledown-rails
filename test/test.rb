@@ -20,6 +20,23 @@ describe "Basic parsing" do
   end
 end
 
+describe "Working with many files" do
+  before do
+    @output = Styledown.parse([
+      { :name => "input.md",  :data => "### hi from md" },
+      { :name => "input.css", :data => "/**\n * hi from css:\n * world\n */" }
+    ])
+  end
+
+  it "parses the Markdown file" do
+    @output.must_match /<h3[^>]+>hi from md<\/h3>/
+  end
+
+  it "parses the CSS file" do
+    @output.must_match /<h3[^>]+>hi from css<\/h3>/
+  end
+end
+
 describe 'head options' do
   before do
     @output = Styledown.parse('### hi', head: '<meta>')

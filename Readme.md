@@ -31,6 +31,11 @@ Contrary to the gem's name, styledown-rails does *not* require Rails.
 require 'styledown'
 
 Styledown.parse('### hello', bare: true)
+
+Styledown.parse([
+  { name: "input.md",  data: "### hi from md" },
+  { name: "input.css", data: "/**\n * hi from css:\n * world\n */" }
+])
 ```
 
 API for `Styledown.parse` is exactly the same as the JS version ([docs]).
