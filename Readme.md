@@ -3,7 +3,7 @@ Styledown-rails
 
 Ruby integration of [Styledown].
 
-*NB: This is a work in progress. Check back in a few days.*
+*NB: This is a work in progress. Check back in a few weeks.*
 
 ## Rails integration
 
@@ -12,7 +12,7 @@ Ruby integration of [Styledown].
 gem 'styledown-rails'
 ```
 
-Controller:
+Controller (TODO: this is to be implemented soon):
 
 ```rb
 module StyleguideController
