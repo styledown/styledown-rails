@@ -6,7 +6,7 @@ Ruby integration of [Styledown].
 
 [![Status](http://img.shields.io/travis/styledown/styledown-ruby/master.svg?style=flat)](https://travis-ci.org/styledown/styledown-ruby "See test builds")
 
-## Rails integration
+## Ruby integration
 
 ```rb
 # Gemfile
