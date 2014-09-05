@@ -4,7 +4,7 @@ Styledown
 Ruby integration of [Styledown].
 
 
-[![Status](http://img.shields.io/travis/styledown/styledown-ruby/master.svg?style=flat)](https://travis-ci.org/styledown/styledown-ruby "See test builds")
+[![Status](http://img.shields.io/travis/styledown/styledown-rails/master.svg?style=flat)](https://travis-ci.org/styledown/styledown-rails "See test builds")
 
 ## Ruby integration
 
@@ -52,5 +52,5 @@ Authored and maintained by Rico Sta. Cruz with help from [contributors].
 > Twitter [@rstacruz](https://twitter.com/rstacruz)
 
 [MIT License]: http://mit-license.org/
-[contributors]: http://github.com/styledown/styledown-ruby/contributors
+[contributors]: http://github.com/styledown/styledown-rails/contributors
 [Styledown]: https://github.com/styledown/styledown
