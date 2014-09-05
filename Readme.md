@@ -1,9 +1,7 @@
-Styledown-rails
-===============
+Styledown
+=========
 
 Ruby integration of [Styledown].
-
-*NB: This is a work in progress. Check back in a few weeks.*
 
 ## Rails integration
 
