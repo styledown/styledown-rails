@@ -14,3 +14,7 @@ end
 def test_path(path='')
   File.expand_path("../#{path}", __FILE__)
 end
+
+def fixture_path(path='')
+  test_path "fixtures/#{path}"
+end

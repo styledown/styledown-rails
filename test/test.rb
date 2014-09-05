@@ -50,3 +50,20 @@ describe 'head options' do
     @output.must_match /^<!doctype html>/
   end
 end
+
+describe 'Working with arrays of strings' do
+  before do
+    @output = Styledown.parse([
+      fixture_path('simple/sample.css'),
+      fixture_path('simple/sample.md')
+    ])
+  end
+
+  it 'renders from .md' do
+    @output.must_match /Sample md block<\/h3>/
+  end
+
+  it 'renders from .css' do
+    @output.must_match /Sample CSS block<\/h3>/
+  end
+end
