@@ -154,7 +154,7 @@ Styledown.prototype = {
 
     if (this.options.head !== false) {
       // Unpack template
-      var $ = Cheerio.load(this.options.template);
+      var $ = Cheerio.load(htmlize(this.options.template));
       $('body').append(htmlize(this.options.body));
       $('[sg-content]').append(html).removeAttr('sg-content');
       $('html, body').addClass(this.options.prefix);
@@ -294,8 +294,9 @@ module.exports = [
     "",
     "### Head",
     "",
-    "    <script src='https://cdn.rawgit.com/rstacruz/styledown/v"+version+"/data/styledown.js'></script>",
-    "    <link rel='stylesheet' href='https://cdn.rawgit.com/rstacruz/styledown/v"+version+"/data/styledown.css' />",
+    "    <meta name='viewport' content='width=device-width, initial-scale=1' />",
+    "    <script src='https://cdn.rawgit.com/styledown/styledown/v"+version+"/data/styledown.js'></script>",
+    "    <link rel='stylesheet' href='https://cdn.rawgit.com/styledown/styledown/v"+version+"/data/styledown.css' />",
     "    <link rel='stylesheet' href='your-stylesheet-here.css' />",
     "",
     "### Body",
@@ -310,6 +311,7 @@ module.exports = [
 
 (function () {
   if (!this.window) this.window = this;
+  module.exports = require('../index');
   this.Styledown = require('../index');
 })();
 
@@ -19484,8 +19486,7 @@ module.exports={
     "tarball": "http://registry.npmjs.org/cheerio/-/cheerio-0.17.0.tgz"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/cheerio/-/cheerio-0.17.0.tgz",
-  "readme": "ERROR: No README data found!"
+  "_resolved": "https://registry.npmjs.org/cheerio/-/cheerio-0.17.0.tgz"
 }
 
 },{}],102:[function(require,module,exports){
@@ -46278,14 +46279,15 @@ module.exports={
     "styleguide"
   ],
   "author": "Rico Sta. Cruz <hi@ricostacruz.com>",
-  "version": "0.6.1",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rstacruz/styledown.git"
+    "url": "https://github.com/styledown/styledown.git"
   },
   "main": "index",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "prepublish": "make dist"
   },
   "dependencies": {
     "cheerio": "0.17.0",
