@@ -9,42 +9,39 @@ Ruby integration of [Styledown].
 
 ```rb
 # Gemfile
-gem 'styledown-rails'
-```
-
-Controller (TODO: this is to be implemented soon):
-
-```rb
-module StyleguideController
-  def index
-    files = Dir['./app/assets/stylesheets/*.scss']
-    render_styleguide files: files, layout: 'application'
-  end
-end
+gem 'styledown'
 ```
 
 ## Plain Ruby integration
 
-Contrary to the gem's name, styledown-rails does *not* require Rails.
+API for `Styledown.parse` is exactly the same as the JS version ([docs]).
 
 ```rb
 require 'styledown'
 
+# Passing a Styledown sting:
 Styledown.parse('### hello', bare: true)
 
+# Parsing files from disk:
+Styledown.parse([
+    '/path/to/input.css',
+    '/path/to/input.md',
+    '...'
+])
+
+# Parsing files from elsewhere:
 Styledown.parse([
   { name: "input.md",  data: "### hi from md" },
   { name: "input.css", data: "/**\n * hi from css:\n * world\n */" }
 ])
 ```
 
-API for `Styledown.parse` is exactly the same as the JS version ([docs]).
  
 [docs]: https://github.com/styledown/styledown/blob/master/docs/API.md#styledownparse
 
 ## :copyright:
 
-**styledown-rails** © 2014+, Rico Sta. Cruz. Released under the [MIT License].<br>
+**styledown** © 2014+, Rico Sta. Cruz. Released under the [MIT License].<br>
 Authored and maintained by Rico Sta. Cruz with help from [contributors].
 
 > [ricostacruz.com](http://ricostacruz.com) &nbsp;&middot;&nbsp;
