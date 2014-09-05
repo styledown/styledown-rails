@@ -3,12 +3,17 @@ Styledown
 
 Ruby integration of [Styledown].
 
+
+[![Status](http://img.shields.io/travis/styledown/styledown-ruby/master.svg?style=flat)](https://travis-ci.org/styledown/styledown-ruby "See test builds")
+
 ## Rails integration
 
 ```rb
 # Gemfile
 gem 'styledown'
 ```
+
+[![Gem](https://img.shields.io/gem/v/styledown.svg?style=flat)](http://rubygems.org/gems/styledown "View this project in Rubygems")
 
 ## Plain Ruby integration
 
