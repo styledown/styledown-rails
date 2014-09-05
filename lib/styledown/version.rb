@@ -1,5 +1,5 @@
 module Styledown
   def self.version
-    version = "0.7.0-0"
+    version = "1.0.1-0"
   end
 end
