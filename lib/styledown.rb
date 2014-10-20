@@ -12,10 +12,8 @@ module Styledown
     end
   end
 
-  def parse(source, options={})
-    if array_of_filenames?(source)
-      source = unpack_files(source)
-    end
+  def parse(source, options = {})
+    source = unpack_files(source) if array_of_filenames?(source)
 
     context.call('Styledown.parse', source, options)
   end
@@ -24,7 +22,7 @@ module Styledown
     context.eval('Styledown.version')
   end
 
-private
+  private
 
   def unpack_files(source)
     source.map { |file| { name: file, data: File.read(file) } }

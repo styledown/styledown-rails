@@ -4,17 +4,17 @@ require './lib/styledown'
 begin
   require 'minitest/reporters'
   if ENV['reporter'] == 'spec'
-    Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new(:color => true)
+    Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new(color: true)
   else
     Minitest::Reporters.use! Minitest::Reporters::ProgressReporter.new
   end
 rescue LoadError => e
 end
 
-def test_path(path='')
+def test_path(path = '')
   File.expand_path("../#{path}", __FILE__)
 end
 
-def fixture_path(path='')
+def fixture_path(path = '')
   test_path "fixtures/#{path}"
 end
