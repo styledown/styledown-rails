@@ -17,6 +17,6 @@ Gem::Specification.new do |s|
   s.homepage = 'http://github.com/styledown/styledown-ruby'
   s.license  = 'MIT'
 
-  s.add_dependency 'execjs', '>= 0'
-  s.add_development_dependency 'rake', '>= 0'
+  s.add_dependency 'execjs', '>= 0', '< 3'
+  s.add_development_dependency 'rake', '>= 0', '< 12'
 end
