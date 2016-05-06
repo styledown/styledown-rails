@@ -13,9 +13,11 @@ module Styledown
   end
 
   def parse(source, options = {})
-    source = unpack_files(source) if array_of_filenames?(source)
-
     context.call('Styledown.parse', source, options)
+  end
+
+  def parse_files(source, options = {})
+    parse unpack_files(source), options
   end
 
   def render(data, file, options = {})

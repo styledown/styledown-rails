@@ -17,34 +17,40 @@ gem 'styledown'
 
 ## Plain Ruby integration
 
-API for `Styledown.parse` is exactly the same as the JS version ([docs]).
+These are provided:
+
+* `Styledown.parse`
+* `Styledown.parse_files`
+* `Styledown.render`
+
+API them is exactly the same as the JS version ([docs]).
 
 ```rb
 require 'styledown'
 
-# Passing a Styledown sting:
-Styledown.parse('### hello', bare: true)
-
 # Parsing files from disk:
-Styledown.parse([
-    '/path/to/input.css',
-    '/path/to/input.md',
-    '...'
+data = Styledown.parse_files([
+  '/path/to/buttons.md',
+  '/path/to/forms.md',
+  '...'
 ])
 
 # Parsing files from elsewhere:
-Styledown.parse([
-  { name: "input.md",  data: "### hi from md" },
-  { name: "input.css", data: "/**\n * hi from css:\n * world\n */" }
+data = Styledown.parse([
+  { name: 'buttons.md', contents: '### hi from buttons' },
+  { name: 'forms.md',   contents: '### hi from forms' },
 ])
+
+# Rendering a page:
+html = Styledown.render(data, 'buttons.md')
+html = Styledown.render(data, 'forms.md')
 ```
 
- 
-[docs]: https://github.com/styledown/styledown/blob/master/docs/API.md#styledownparse
+[docs]: https://github.com/styledown/styledown/blob/v2/docs/api.md#styledownparse
 
 ## :copyright:
 
-**styledown** © 2014+, Rico Sta. Cruz. Released under the [MIT License].<br>
+**styledown** © 2014-2016, Rico Sta. Cruz. Released under the [MIT License].<br>
 Authored and maintained by Rico Sta. Cruz with help from [contributors].
 
 > [ricostacruz.com](http://ricostacruz.com) &nbsp;&middot;&nbsp;

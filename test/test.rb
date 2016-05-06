@@ -51,7 +51,7 @@ end
 
 describe 'Working with arrays of strings' do
   before do
-    @output = Styledown.parse([
+    @output = Styledown.parse_files([
       fixture_path('simple/sample.md'),
       fixture_path('simple/other_sample.md')
     ])
