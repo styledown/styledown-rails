@@ -15,9 +15,9 @@ describe 'Basic parsing' do
   end
 
   it 'works' do
-    expect(@data['files']).must_be_kind_of Hash
-    expect(@data['files']['buttons.md']).must_be_kind_of Hash
-    expect(@data['files']['buttons.md']['sections']).must_be_kind_of Hash
+    @data['files'].must_be_kind_of Hash
+    @data['files']['buttons.md'].must_be_kind_of Hash
+    @data['files']['buttons.md']['sections'].must_be_kind_of Hash
   end
 
   describe 'with rendering' do
@@ -40,11 +40,11 @@ describe 'Basic parsing' do
     end
 
     it 'produces HTML' do
-      expect(@output).must_match /<h3[^>]+>hi<\/h3>/
+      @output.must_match /<h3[^>]+>hi<\/h3>/
     end
 
     it "uses the layout" do
-      expect(@output).must_match /^<!doctype html>/
+      @output.must_match /^<!doctype html>/
     end
   end
 end
@@ -58,8 +58,8 @@ describe 'Working with arrays of strings' do
   end
 
   it 'parses' do
-    expect(@output['files']).must_be_kind_of Hash
-    expect(@output['files'][fixture_path('simple/sample.md')]).must_be_kind_of Hash
-    expect(@output['files'][fixture_path('simple/other_sample.md')]).must_be_kind_of Hash
+    @output['files'].must_be_kind_of Hash
+    @output['files'][fixture_path('simple/sample.md')].must_be_kind_of Hash
+    @output['files'][fixture_path('simple/other_sample.md')].must_be_kind_of Hash
   end
 end
