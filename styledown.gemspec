@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.author   = 'Rico Sta. Cruz'
   s.email    = 'hi@ricostacruz.com'
-  s.homepage = 'http://github.com/styledown/styledown-ruby'
+  s.homepage = 'http://github.com/styledown/styledown-rails'
   s.license  = 'MIT'
 
   s.add_dependency 'execjs', '>= 0', '< 3'
