@@ -18,6 +18,10 @@ module Styledown
     context.call('Styledown.parse', source, options)
   end
 
+  def render(data, file, options = {})
+    context.call('Styledown.render', data, file, options)
+  end
+
   def js_version
     context.eval('Styledown.version')
   end
@@ -25,7 +29,7 @@ module Styledown
   private
 
   def unpack_files(source)
-    source.map { |file| { name: file, data: File.read(file) } }
+    source.map { |file| { name: file, contents: File.read(file) } }
   end
 
   def array_of_filenames?(source)

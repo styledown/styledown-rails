@@ -8,62 +8,58 @@ end
 
 describe 'Basic parsing' do
   before do
-    @output = Styledown.parse('### hi')
+    @data = Styledown.parse([{
+      name: 'buttons.md',
+      contents: '### hi'
+    }])
   end
 
-  it 'produces an HTML fragment' do
-    @output.must_match /<h3[^>]+>hi<\/h3>/
+  it 'works' do
+    expect(@data['files']).must_be_kind_of Hash
+    expect(@data['files']['buttons.md']).must_be_kind_of Hash
+    expect(@data['files']['buttons.md']['sections']).must_be_kind_of Hash
   end
 
-  it "doesn't produce an HTML document" do
-    @output.wont_match /^<!doctype html>/
-  end
-end
+  describe 'with rendering' do
+    before do
+      @output = Styledown.render(@data, 'buttons.md')
+    end
 
-describe 'Working with many files' do
-  before do
-    @output = Styledown.parse([
-      { name: 'input.md',  data: '### hi from md' },
-      { name: 'input.css', data: "/**\n * hi from css:\n * world\n */" }
-    ])
-  end
+    it 'produces an HTML fragment' do
+      @output.must_match /<h3[^>]+>hi<\/h3>/
+    end
 
-  it 'parses the Markdown file' do
-    @output.must_match /<h3[^>]+>hi from md<\/h3>/
+    it "doesn't produce an HTML document" do
+      @output.wont_match /^<!doctype html>/
+    end
   end
 
-  it 'parses the CSS file' do
-    @output.must_match /<h3[^>]+>hi from css<\/h3>/
-  end
-end
+  describe 'with rendering with layouts' do
+    before do
+      @output = Styledown.render(@data, 'buttons.md', layout: '<!doctype html><%- body %>')
+    end
 
-describe 'head options' do
-  before do
-    @output = Styledown.parse('### hi', head: '<meta>')
-  end
+    it 'produces HTML' do
+      expect(@output).must_match /<h3[^>]+>hi<\/h3>/
+    end
 
-  it 'includes the head text' do
-    @output.must_match /<meta>/
-  end
-
-  it 'produces an HTML document' do
-    @output.must_match /^<!doctype html>/
+    it "uses the layout" do
+      expect(@output).must_match /^<!doctype html>/
+    end
   end
 end
 
 describe 'Working with arrays of strings' do
   before do
     @output = Styledown.parse([
-      fixture_path('simple/sample.css'),
-      fixture_path('simple/sample.md')
+      fixture_path('simple/sample.md'),
+      fixture_path('simple/other_sample.md')
     ])
   end
 
-  it 'renders from .md' do
-    @output.must_match /Sample md block<\/h3>/
-  end
-
-  it 'renders from .css' do
-    @output.must_match /Sample CSS block<\/h3>/
+  it 'parses' do
+    expect(@output['files']).must_be_kind_of Hash
+    expect(@output['files'][fixture_path('simple/sample.md')]).must_be_kind_of Hash
+    expect(@output['files'][fixture_path('simple/other_sample.md')]).must_be_kind_of Hash
   end
 end
