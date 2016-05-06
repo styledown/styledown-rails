@@ -1,3 +1,10 @@
+## [v2.0.0-pre1]
+> May  6, 2016
+
+- **Completely new API.** Update to use Styledown v2.0.0-pre1.
+
+[v2.0.0-pre1]: https://github.com/styledown/styledown-rails/compare/v0.0.0...v2.0.0-pre1
+
 ## [v1.0.1]
 > Apr 19, 2016
 

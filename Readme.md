@@ -10,7 +10,7 @@ Ruby integration of [Styledown].
 
 ```rb
 # Gemfile
-gem 'styledown'
+gem 'styledown', '~> 2.0.0'
 ```
 
 [![Gem](https://img.shields.io/gem/v/styledown.svg?style=flat)](http://rubygems.org/gems/styledown "View this project in Rubygems")
